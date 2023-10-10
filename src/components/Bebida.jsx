@@ -11,6 +11,7 @@ const Bebida = ({bebida}) => {
 <Col md={6} lg={4} className='mb-5'>
 
     <Card>
+      
         <Card.Body>
           <Card.Title className='text-center strong'>
             {bebida.strDrink}
@@ -22,6 +23,7 @@ const Bebida = ({bebida}) => {
           handleBebidasId(bebida.idDrink)
         }}> Ver receta 
         </button>
+      
     </Card>
 
 </Col>
