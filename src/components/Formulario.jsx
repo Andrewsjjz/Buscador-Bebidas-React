@@ -4,6 +4,7 @@ import useBebidas from "../hooks/useBebidas"
 import { useState } from "react"
 
 export default function Formulario() {
+    
     const [busqueda, setBusqueda] = useState({
         nombre: '',
         categoria: ''
@@ -17,12 +18,10 @@ export default function Formulario() {
 
     const HandleSubmit = e => {
         e.preventDefault()
-
         if(Object.values(busqueda).includes('')){
                 setError('Todos los campos deben estar llenos')
                 return
             }
-
             setError('')
             consultarBebida(busqueda)
         }
@@ -34,11 +33,12 @@ export default function Formulario() {
     >
 
     {error && <Alert variant="danger" className='text-center text-uppercase'>{error}</Alert>}
-      <Row>
+        
+      <Row>     
         <Col md={6}>
             <Form.Group>
+                
                 <Form.Label htmlFor="nombre">Licor o Bebida</Form.Label> 
-
                 <Form.Control
                 id="nombre"
                 type='text'
@@ -49,9 +49,11 @@ export default function Formulario() {
                     ...busqueda,
                     [e.target.name] : e.target.value
                 })}
-                />   
+                />  
+                
             </Form.Group>  
         </Col>
+          
         <Col md={6}>
         <Form.Group>
                 <Form.Label htmlFor="categoria">Categoria del Licor o Bebida</Form.Label> 
