@@ -12,15 +12,11 @@ export default function ListadoBebidas() {
     <Row className='mt-5'>
 
       {bebidas.map(bebida => (
-
         <Bebida
         key={bebida.idDrink}
           bebida={bebida}
         />
-
       ))}
-
-
       
     </Row>
   )
