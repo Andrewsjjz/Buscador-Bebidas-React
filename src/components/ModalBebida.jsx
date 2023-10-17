@@ -9,12 +9,15 @@ const ModalBebida = () => {
         let ingredientes = []
 
         for(let i = 1; i<16; i++){
+            
             if(receta[`strIngredient${i}`]){
                 ingredientes.push(
+                    
                     <li>
                     {receta[`strIngredient${i}`]}
                     {receta[`strMeasure${i}`]}
                     </li>
+                    
                 )
             }
         }
@@ -22,24 +25,33 @@ const ModalBebida = () => {
     }
 
   return (
+      
     <Modal show={modal} onHide={ () =>{
         setReceta({}),
         handleModalClick()
     }}>
+        
         <Image
         src={receta.strDrinkThumb}
 
         />
     <Modal.Header>
+        
       <Modal.Title>{receta.strDrink}</Modal.Title>
+        
     </Modal.Header>
+        
     <Modal.Body>{receta.strInstructions}
+        
     <div className='mt-3'>
         <h3 className='mb-3'>Ingredientes y preparacion</h3>
         {mostrarIngredientes()}
     </div>
+        
     </Modal.Body>
+        
     <Modal.Footer>
+        
     </Modal.Footer>
   </Modal>
   )
