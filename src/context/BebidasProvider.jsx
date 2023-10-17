@@ -13,15 +13,18 @@ const BebidasProvider = ({children}) => {
 
     //Obtener Receta
     useEffect(() => {
+        
         const obtenerReceta = async () => {
+            
             if(!bebidasId) return
+            
             try {
                 const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${bebidasId}`
-
                 const {data} = await axios (url)
                 setReceta(data.drinks[0])
-            } catch (error) {
                 
+            } catch (error) {
+              console.log(error)  
             }
         }
         obtenerReceta()
@@ -32,9 +35,9 @@ const BebidasProvider = ({children}) => {
     const consultarBebida = async datos => {
 
         try {
+            
             const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?
             i=${datos.nombre}&c=${datos.categoria}`
-
             const { data } = await axios (url)
             setBebidas(data.drinks)
 
